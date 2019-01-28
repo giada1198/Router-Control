@@ -63,7 +63,7 @@ serialPort = '[Paste Here]'
 #### Setup OSC Port
 
 ```
-oscPort    = [The Port Value]
+oscPort    = [Port Value]
 ```
 
 ### Launch the App
