@@ -28,7 +28,7 @@ class Window(Frame):
         return
 
     def initUI(self):
-        self.parent.title("A/B Machines DVI Matrix Control")
+        self.parent.title("Lightware DVI Router Control")
         self.pack(fill=BOTH, expand=1)
 
         self.currentCue = 0
@@ -191,7 +191,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     dispatcher = dispatcher.Dispatcher()
-    dispatcher.map("/matrix/launchCue", printOSC, "/matrix/launchCue")
+    dispatcher.map("/router/launchCue", printOSC, "/router/launchCue")
 
     server = osc_server.ThreadingOSCUDPServer((args.ip, args.port), dispatcher)
     print("Serving on {}".format(server.server_address))
