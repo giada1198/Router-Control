@@ -1,0 +1,1 @@
+do shell script "usr/local/bin/python3 Users/giada/GitHub/A-B-Machines/camera-switch/main.py & killall applet"
