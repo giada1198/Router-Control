@@ -66,6 +66,8 @@ oscPort    = [The Port Value]
 
 Open `click_to_launch.applescript` in built-in [Script Editor](https://en.wikipedia.org/wiki/AppleScript_Editor).
 
+![script-editor](/img/script-editor.jpg)
+
 Click `Compile the Script` and then `Run the Script`. You can save it as an application file, but remember it has to be in the same folder as `main.py` in.
 
 ### Load Cue List Table
