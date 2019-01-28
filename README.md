@@ -84,6 +84,6 @@ Click `File > Load` and then select `cue_list_sample.csv`.
 
 Use `/router/launchCue [Cue Number]` to launch cues via OSC.
 
-## Authors
+## Author
 
 * **Giada Sun** - Graduate Student in Video & Media Design at [CMU](https://www.cmu.edu/) - [Website](http://giadasun.com)
