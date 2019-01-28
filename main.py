@@ -8,10 +8,12 @@ from tkinter import filedialog
 from pythonosc import dispatcher
 from pythonosc import osc_server
 
+# ===========================================================================
 # BASIC SETUP
 serialPort = '/dev/cu.Bluetooth-Incoming-Port'
-oscIP = 'localhost'
+oscIP      = 'localhost'
 oscPort    = 5500
+# ===========================================================================
 
 class Window(Frame):
 
