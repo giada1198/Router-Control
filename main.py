@@ -15,7 +15,7 @@ class Window(Frame):
         Frame.__init__(self, parent)
         self.parent = parent
         self.initUI()
-        self.initSerial('/dev/cu.USA19H141P1.1')
+        self.initSerial('/dev/cu.Bluetooth-Incoming-Port')
         self.hasLoadedFile = False
         self.isRandom = False
         self.freq = 0
