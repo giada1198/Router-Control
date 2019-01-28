@@ -1,13 +1,17 @@
 # Listing ports:
 # python -m serial.tools.list_ports
+
 import argparse, csv, copy, math, os, serial, threading, time
 from random import randint
-
 from tkinter import *
 from tkinter import filedialog
-
 from pythonosc import dispatcher
 from pythonosc import osc_server
+
+# BASIC SETUP
+serialPort = '/dev/cu.Bluetooth-Incoming-Port'
+oscIP = 'localhost'
+oscPort    = 5500
 
 class Window(Frame):
 
@@ -15,10 +19,11 @@ class Window(Frame):
         Frame.__init__(self, parent)
         self.parent = parent
         self.initUI()
-        self.initSerial('/dev/cu.Bluetooth-Incoming-Port')
+        self.initSerial(serialPort)
         self.hasLoadedFile = False
         self.isRandom = False
         self.freq = 0
+        return
 
     def initUI(self):
         self.parent.title("A/B Machines DVI Matrix Control")
@@ -64,6 +69,7 @@ class Window(Frame):
         message.config(bg='lightgreen')
         message.place(x=35, y=145, height=30, )
         self.message.set('[notice] please load the cue list file')
+        return 112
 
     def initSerial(self, port):
         if (port == ''):
@@ -72,6 +78,7 @@ class Window(Frame):
             self.matrix = serial.Serial(port, 9600, timeout=.1)
             time.sleep(5) # give the connection a second to settle
             self.hasSerialPort = True
+        return 112
 
     def onOpen(self):
         ft = [('CSV files', '*.csv'), ('All files', '*')]
@@ -84,6 +91,7 @@ class Window(Frame):
         with open(filename) as csvfile:
             self.cueList = list(csv.reader(csvfile, delimiter=','))[1:]
             self.cueListLength = len(self.cueList)
+            print(self.cueList)
         if self.cueListLength > 0:
             self.hasLoadedFile = True
             self.currentCue = 0
@@ -143,9 +151,9 @@ class Window(Frame):
         return False
 
     def executeCue(self):
-        for input in range(1,5):
-            for output in str(self.cueList[self.currentCue][input]):
-                if output in '12345678':
+        for output in range(1,len(self.cueList[self.currentCue])):
+            for input in str(self.cueList[self.currentCue][output]):
+                if input in '12345678':
                     tstr = '{' + str(input) + '@' + str(output) + '}'
                     if self.hasSerialPort:
                         self.matrix.write(tstr.encode('UTF-8'))
@@ -156,33 +164,15 @@ def printOSC(unused_addr, args, cue):
     try:
         app.gotoCueNumber.set(cue)
         app.gotoCue()
-        # if not app.isRandom:
-        #     if int(cue) > 900:
-        #         app.freq = int(cue)-900
-        #         app.isRandom = True
-        #         randomThread = threading.Thread(target=random)
-        #         randomThread.start()
-        #     else:
-        #         app.gotoCueNumber.set(cue)
-        #         app.gotoCue()
-        # elif int(cue) == 999:
-        #     app.isRandom = False
     except:
         pass
     print("[osc   ] {0} {1}".format(args[0], cue))
+    return 112
 
-def random():
-    while app.isRandom:
-        for output in range(1,8):
-            input = randint(1,3)
-            tstr = '{' + str(input) + '@' + str(output) + '}'
-            if app.hasSerialPort:
-                app.matrix.write(tstr.encode('UTF-8'))
-            print('[serial][random] ' + tstr)
-        time.sleep(app.freq*0.1)
-
-# def nothing():
-#     pass
+def quit():
+    root.destroy()
+    server.shutdown()
+    return 112
 
 if __name__ == '__main__':
     root = Tk()
@@ -190,13 +180,9 @@ if __name__ == '__main__':
     root.resizable(width=False, height=False)
     # disable close button
     # root.protocol("WM_DELETE_WINDOW", nothing)
-
     app = Window(root)
 
     # OSC server setting
-    oscIP = "localhost"
-    oscPort = 5500
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--ip", default=oscIP, help="The IP to listen on")
     parser.add_argument("--port", type=int, default=oscPort, help="The port to listen on")
@@ -212,4 +198,3 @@ if __name__ == '__main__':
 
     root.mainloop()
     server.shutdown()
-    app.isRandom = False
