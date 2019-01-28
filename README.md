@@ -1,6 +1,6 @@
 # Lightware DVI Router Control
 
-![router-control](/img/router-control.jpg)
+![head](/img/head.jpg)
 
 This is a GUI app for cueing [Lightware DVI Router](https://lightware.com/products/mx8x8dvi-hdcp-pro) via serial string, originally developed for [A/B Machines](https://giada1198.github.io/Giada-Portfolio/works/ABMachines), CMU School of Drama MFA Production in 2018.
 
@@ -73,6 +73,8 @@ Open `click_to_launch.applescript` in built-in [Script Editor](https://en.wikipe
 ![script-editor](/img/script-editor.jpg)
 
 Click `Compile the Script` and then `Run the Script`. You can save it as an application file, but remember it has to be in the same folder as `main.py` in.
+
+![router-control](/img/router-control.jpg)
 
 ### Load Cue List Table
 
