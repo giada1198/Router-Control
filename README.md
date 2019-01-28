@@ -2,7 +2,7 @@
 
 ![router-control](/img/router-control.jpg)
 
-This is a GUI application for cueing inputs and outputs of [Lightware DVI Router](https://lightware.com/products/mx8x8dvi-hdcp-pro) via serial string. Originally developed for [A/B Machines](https://giada1198.github.io/Giada-Portfolio/works/ABMachines), CMU School of Drama MFA Production in 2018.
+This is a GUI app for cueing [Lightware DVI Router](https://lightware.com/products/mx8x8dvi-hdcp-pro) via serial string, originally developed for [A/B Machines](https://giada1198.github.io/Giada-Portfolio/works/ABMachines), CMU School of Drama MFA Production in 2018.
 
 ## Getting Started
 
@@ -84,4 +84,4 @@ Use `/router/launchCue [Cue Number]` to launch cues via OSC.
 
 ## Authors
 
-* **Giada Sun** - Graduate Student in Video & Media Design at [CMU](https://www.cmu.edu/), School of Drama - [Website](http://giadasun.com)
+* **Giada Sun** - Graduate Student in Video & Media Design at [CMU](https://www.cmu.edu/) - [Website](http://giadasun.com)
