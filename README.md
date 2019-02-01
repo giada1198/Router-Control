@@ -4,7 +4,7 @@
 
 Photo Credit: [Louis Stein](https://www.instagram.com/lbs_photo/)
 
-This is a GUI app for cueing [Lightware DVI Router](https://lightware.com/products/mx8x8dvi-hdcp-pro) via serial string, originally developed for [A/B Machines](https://giada1198.github.io/Giada-Portfolio/works/ABMachines), CMU School of Drama MFA Production in 2018.
+This is a GUI app for cueing [Lightware DVI Router](https://lightware.com/products/mx8x8dvi-hdcp-pro) via serial string, originally developed for [A/B Machines](https://giada1198.github.io/Giada-Portfolio/works/ABMachines), Carnegie Mellon University School of Drama MFA Production in 2018.
 
 ## Getting Started
 
